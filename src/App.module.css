@@ -3,10 +3,3 @@
    padding: 25px;
 } */
 
-.nav{
-   background-color: #79bd8f;
-   padding: 1em;
-   display: flex;
-   flex-direction: row;
-   justify-content: end;
-}

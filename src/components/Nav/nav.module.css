@@ -1,0 +1,15 @@
+.nav{
+    background-color: #767776;
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+/* .nav{
+    background-color: rgba(38, 38, 38, 0.5);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+} */
