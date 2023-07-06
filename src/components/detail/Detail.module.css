@@ -1,0 +1,35 @@
+.container{
+    color: aliceblue;
+}
+
+.containerDetail{
+    display: flex;
+    justify-content:space-around;
+
+}
+
+img{
+    width: 200px;
+    border-radius: 20px 20px 0 0;
+}
+
+.imageContainer{
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 10px;
+    align-items: center;
+}
+.name{
+    background-color: rgba(0,255, 255, 0.6);
+    position: absolute;
+    margin-bottom: 0px;
+}
+
+.propsContainer{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0px;
+    color: aqua;
+    border-radius: 10px 10px 70px 70px;   
+    background-color: black;
+}

@@ -1,11 +1,21 @@
-.container{
+/* .container{
     display:flex;
     flex-direction: row;
     justify-content:space-between;
     width: 90%;
-    margin: auto;
+    margin: auto; 
     background-color: #00a388;
-    padding: 1em;
+    padding: 1em; 
     border-radius: 20px;
     box-shadow: 10px 10px 6px 0px rgba(77,74,74,0.75);
-}
+} */
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    height: 100vh; 
+    /* background-color: rgb(146, 144, 144) */
+  }

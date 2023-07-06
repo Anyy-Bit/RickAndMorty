@@ -1,20 +1,44 @@
 import React from "react";
-import SearchBar from "../SearchBar/SearchBar";
+import SearchBar from "../searchBar/SearchBar";
 import style from './nav.module.css'
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-
-const Nav = ({onSearch}) =>{
+const NavLinkMe = ({to, children, ...props}) => {
     return(
-        <nav className = {style.nav}>
-                <Link to="/about">About</Link>
-                <Link to="/home">Home</Link>
-             <SearchBar onSearch={onSearch}/>
-        </nav>
+        <NavLink 
+            {...props}
+            to={to}
+            className={({isActive}) => isActive ? style.active : style.disable
+                }
+        >
+            {children}
+        </NavLink>
     );
 }
 
-export default Nav;
+export default function Nav({onSearch}){
+    return (
+        <div className={style.nav}>
+             <NavLinkMe to="/home">Home</NavLinkMe>
+             <NavLinkMe to="/about">About</NavLinkMe>
+            <SearchBar onSearch={onSearch}/>
+
+        </div>
+    )
+}
+
+// const Nav = ({onSearch}) =>{
+//     return(
+//         <nav className = {style.nav}>
+//                 <Link to="/about">About</Link>
+//                 <Link to="/home">Home</Link>
+//              <SearchBar onSearch={onSearch}/>
+//         </nav>
+//     );
+// }
+
+// export default Nav;
 
 
 
