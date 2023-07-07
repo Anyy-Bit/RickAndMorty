@@ -1,8 +1,8 @@
 import style from './Form.module.css';
 import {useState} from 'react';
+import { validate } from './Validation';
 
 export default function Form (props) {
-
     const [userData, setUserData] = useState({
         email:"",
         password:"",
@@ -19,34 +19,24 @@ export default function Form (props) {
             ...userData,
             [name] : value,
         })
+        setErrors(validate({
+            ...errors,
+            //...inputs,
+            [name] : value,
+        }))
     }
 
-    const regexEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-    const validate = (inputs) => {
-        const errors = {};
-            if (!regexEmail.test(inputs.email)) {
-            errors.email = "Debe ser un correo electrónico";
-             }
-            if (!inputs.email) {
-                errors.email = "Se requiere un nombre";
-            }
-            if (inputs.email.length > 35) {
-                errors.email = "No puede superar los 35  caracteres";
-            }
-            return errors;
-                }
-
-
-    return (
+    return (      
         <Form className={style.container}>
-                <img src="" alt="Not Found" />
+                <img src="" alt="Not Found"/>
                 <br />
                 <label htmlFor= "Email">Email: </label>
-                <input type="text" value={userData.email} name="email" onChange={handleChange}/>
+                <input type="text" value={userData.email} name="email" onChange={handleChange} className={errors.email && style.warning}/>
+                {errors.email ? <p style={{color: "red"}}>{errors.email}</p> : null}
                 
                 <label htmlFor= "Password">Password:</label>
-                <input type="Password" value={userData.password} name="password" onChange={handleChange}/>
-                
+                <input type="Password" value={userData.password} name="password" onChange={handleChange} className={errors.password && style.warning}/>
+                {errors.password ? <p style={{color: "red"}}>{errors.password}</p> : null}
                 <br />
                 <button>Submit</button>
         </Form>
