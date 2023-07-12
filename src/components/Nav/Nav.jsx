@@ -10,57 +10,32 @@ const NavLinkMe = ({to, children, ...props}) => {
             {...props}
             to={to}
             className={({isActive}) => isActive ? style.active : style.disable
-                }
-        >
+            }>
             {children}
         </NavLink>
     );
-}
+};
 
-export default function Nav({onSearch}){
+
+export default function Nav(props){
+    const handleLogOut = () => {
+        props.logOut();
+    };
+
     return (
         <div className={style.nav}>
              <NavLinkMe to="/home">Home</NavLinkMe>
              <NavLinkMe to="/about">About</NavLinkMe>
-            <SearchBar onSearch={onSearch}/>
+             <NavLinkMe to="/favorites">Favorites</NavLinkMe>
+             <SearchBar onSearch={(characterId) => props.onSearch(characterId)}/>
 
+            <button onClick={handleLogOut}>LogOut</button>
         </div>
     )
 }
 
-// const Nav = ({onSearch}) =>{
-//     return(
-//         <nav className = {style.nav}>
-//                 <Link to="/about">About</Link>
-//                 <Link to="/home">Home</Link>
-//              <SearchBar onSearch={onSearch}/>
-//         </nav>
-//     );
-// }
 
-// export default Nav;
-
-
-
-
-// class Nav extends React.Component {
-//     constructor(props) {
-//         super(props);
-//     }
-
-//   render() {
-//      return(
-//         <nav>
-//             <Link to="/about">About</Link>
-//             <Link to="/home">Home</Link>
-//             <SearchBar onSearch={this.props.onSearch} />
-//         </nav>
-//     )
-//     }
-// }
-
-
-
+{/* <SearchBar onSearch={onSearch}/> */}
 
 
 

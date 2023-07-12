@@ -21,13 +21,21 @@ export default function Form (props) {
         })
         setErrors(validate({
             ...errors,
-            //...inputs,
             [name] : value,
         }))
-    }
+    };
+
+    const handleSubmit = (event) =>{
+        event.preventDefault()
+        props.login(userData)
+    };
+
+    const handleLogOut = () => {
+        props.logOut();
+    };
 
     return (      
-        <Form className={style.container}>
+        <form className={style.container} onSubmit={handleSubmit}>
                 <img src="" alt="Not Found"/>
                 <br />
                 <label htmlFor= "Email">Email: </label>
@@ -38,7 +46,8 @@ export default function Form (props) {
                 <input type="Password" value={userData.password} name="password" onChange={handleChange} className={errors.password && style.warning}/>
                 {errors.password ? <p style={{color: "red"}}>{errors.password}</p> : null}
                 <br />
-                <button>Submit</button>
-        </Form>
+                <button type='submit'>Login</button>
+                <button onClick={handleLogOut}>LogOut</button>
+        </form>
     )
-}
+};
