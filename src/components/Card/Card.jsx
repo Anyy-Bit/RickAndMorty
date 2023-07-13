@@ -6,13 +6,14 @@ import { useState, useEffect } from "react";
 
 function Card({id, name, status, species, gender, image, onClose, addFavorite, deleteFavorite, myFavorites}) {
 
-   const [isFav, setIsFav] = useState (false)
+   const [isFav, setIsFav] = useState (false);
+
    const handleFavorite = () => {
       if(isFav){
-         setIsFav(false)
-         deleteFavorite(id)
+         setIsFav(false);
+         deleteFavorite(id);
       }else{
-         setIsFav(true)
+         setIsFav(true);
          addFavorite({id, name, status, species, gender, image, onClose})
       }
    };

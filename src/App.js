@@ -3,20 +3,22 @@ import Cards from './components/cards/Cards.jsx';
 import Nav from './components/nav/Nav.jsx';
 import Detail from './components/detail/Detail.jsx';
 import About from './components/about/About.jsx';
-import favorites from './components/favorites/favorites'
+import Favorites from './components/favorites/Favorites'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import Form from './components/form/Form';
 
+
+
+
 function App() {
 
    const location = useLocation();
-
    const [characters, setCharacters] = useState([]);
-
    const navigate = useNavigate();
    const [access, setAccess] = useState(false);
+   
    const email = "anyandanese@gmail.com";
    const password = "any123";
 
@@ -66,7 +68,7 @@ function App() {
             <Route path="/" element={<Form login={login} logOut={logOut}/>}/>
             <Route path="/Home" element={<Cards characters={characters} onClose={onClose} />} />
             <Route path="/About" element={<About/>} />
-            <Route path="/favorites" element={<favorites/>} />
+            <Route path="/Favorites" element={<Favorites/>} />
             <Route path="/Detail/:id" element={<Detail/>} />
          </Routes>
       </div>
