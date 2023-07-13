@@ -20,7 +20,7 @@ export default function Form (props) {
             [name] : value,
         })
         setErrors(validate({
-            ...errors,
+            ...userData,
             [name] : value,
         }))
     };
